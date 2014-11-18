@@ -46,18 +46,32 @@ function start() {
 }
 
 function poisonTarget(chance) {
+    var random = Math.random() * 100;
     var poisoned = game.targets.filter(get("poison"));
     var unpoisoned = game.targets.filter(not(get("poison")));
 
-    if (poisoned.length < 15 && chance > 99.98 && unpoisoned.length > 0) {
+    if (chance <= random && poisoned.length < 15 && unpoisoned.length > 0) {
         unpoisoned[0].poison = true;
+        unpoisoned[0].super = false;
+    }
+}
+
+function superTarget(chance) {
+    var random = Math.random() * 100;
+    var supers = game.targets.filter(get("super"));
+    var nonsuper = game.targets.filter(not(get("super")));
+
+    if (chance <= random && supers.length < 1 && nonsuper.length > 0) {
+        nonsuper[0].poison = false;
+        nonsuper[0].super = true;
     }
 }
 
 function update() {
     var random = Math.random() * 100;
 
-    poisonTarget(random);
+    poisonTarget(99.95);
+    superTarget(99.98);
 
     game.canvas.clear();
     game.canvas.fillStyle("#000");
