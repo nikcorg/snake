@@ -7,6 +7,7 @@ var put = require("./util/put");
 var get = require("./util/get");
 var call = require("./util/call");
 var range = require("./util/range");
+var flatMap = require("./util/flatmap");
 var hittest = require("./hittest");
 var gameover = require("./gameover");
 
@@ -119,9 +120,15 @@ function tick() {
         game.tail = [];
     }
 
-    game.tail = game.tail.concat(hit.filter(not(get("poison"))).map(function () {
-        return tail(-1, -1);
-    }));
+    game.tail = game.tail.concat(flatMap(
+            hit.filter(not(get("poison"))),
+            function (tp) {
+                if (tp.super) {
+                    return range(50 + Math.random() * 250).map(
+                        tail.bind(undefined, -1, -1));
+                }
+                return tail(-1, -1);
+            }));
 
     // Update targets array
     game.targets = game.targets.filter(not(hittest(game.head)));
