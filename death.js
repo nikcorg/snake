@@ -10,7 +10,8 @@ function death(game, doc) {
 
     var ctx = shadow.getContext("2d");
     var radius = 0;
-    var maxRadius = 50 + game.tail.length;
+    var maxRadius = Math.min(50 + game.tail.length,
+            Math.min(game.canvas.width, game.canvas.height) / 2);
     var speed = 30;
 
     debug("start at %sx%s upto radius of %s", game.head.x, game.head.y, maxRadius);
