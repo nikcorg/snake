@@ -82,10 +82,7 @@ function superify(chance) {
     }
 }
 
-function update() {
-    poisonify(99.95);
-    superify(99.98);
-
+function redrawAll() {
     game.canvas.clear();
     game.canvas.fillStyle("#000");
     game.targets.
@@ -101,7 +98,7 @@ function death() {
     game.canvas.overlay(animation);
 
     function animate() {
-        update();
+        redrawAll();
 
         if (animation.update()) {
             requestAnimationFrame(animate);
@@ -121,11 +118,15 @@ function tick() {
         game.tail.unshift(tailtail);
     });
 
+    // Possible create poisonous or super target
+    poisonify(99.95);
+    superify(99.98);
+
     // Update targets
     game.targets.forEach(call("update"));
 
-    // Update all bodies
-    update();
+    // Redraw all bodies
+    redrawAll();
 
     // Update UI
     game.status.update(game);
