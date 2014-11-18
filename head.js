@@ -49,7 +49,7 @@ function head(canvas, keys) {
         if (motion >= xSize) {
             beforeupdate();
 
-            _head[axis] += Math.floor(motion * sign(v));
+            _head[axis] += Math.floor(xSize * sign(v));
             motion -= xSize;
 
             debug("moved head to %sx%s", _head.x, _head.y);
