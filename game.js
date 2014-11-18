@@ -83,8 +83,6 @@ function superify(chance) {
 }
 
 function update() {
-    var random = Math.random() * 100;
-
     poisonify(99.95);
     superify(99.98);
 
