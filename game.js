@@ -11,6 +11,7 @@ var range = require("./util/range");
 var flatMap = require("./util/flatmap");
 var hittest = require("./hittest");
 var gameover = require("./gameover");
+var selectrandom = require("./util/selectrandom");
 
 var scale = 10;
 var canvas = require("./canvas");
@@ -52,8 +53,10 @@ function poisonTarget(chance) {
     var unpoisoned = game.targets.filter(not(get("poison")));
 
     if (chance <= random && poisoned.length < 15 && unpoisoned.length > 0) {
-        unpoisoned[0].poison = true;
-        unpoisoned[0].super = false;
+        selectrandom(unpoisoned, function (target) {
+            target.poison = true;
+            target.super = false;
+        });
     }
 }
 
@@ -64,8 +67,11 @@ function superTarget(chance) {
             and(not(get("super")), not(get("poison"))));
 
     if (chance <= random && supers.length < 1 && superifiable.length > 0) {
-        superifiable[0].poison = false;
-        superifiable[0].super = true;
+        selectrandom(superifiable, function (target) {
+            target.poison = false;
+            // 60 fps, 15-45 secs
+            target.super = Math.round((Math.random() * 30 + 15) * 60);
+        });
     }
 }
 
