@@ -29,3 +29,10 @@ The game will end if
 - you hit yourself
 - you hit the playing area boundaries
 - you hit a wall created by eating a poisoned square
+
+## Browser support
+
+Tests have only partial coverage
+
+[![browser support](https://ci.testling.com/nikcorg/snake.png)
+](https://ci.testling.com/nikcorg/snake)
