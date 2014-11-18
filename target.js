@@ -16,13 +16,14 @@ function target(canvas) {
         width: ySize,
         update: update,
         poison: false,
-        super: false
+        super: 0
     };
 
     function update() {
         if (_target.poison) {
             _target.color = "#a00";
-        } else if (_target.super) {
+        } else if (_target.super > 0) {
+            --_target.super;
             _target.color = "#" +
                 pad(Math.round(Math.random() * 255).toString(16), 2, "0") +
                 pad(Math.round(Math.random() * 255).toString(16), 2, "0") +
