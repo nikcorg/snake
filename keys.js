@@ -1,4 +1,6 @@
 var debug = require("debug")("keys");
+var compose = require("./util/compose");
+var get = require("./util/get");
 
 module.exports = keys.init = keys;
 
@@ -9,12 +11,6 @@ var keycodes = {
     DOWN: 40,
     SPACE: 32
 };
-
-function keycode(dest) {
-    return function (evt) {
-        return dest(evt.keyCode);
-    };
-}
 
 function init(keyDown, keyUp, source) {
     source.addEventListener("keydown", keyDown, false);
@@ -55,8 +51,9 @@ function keys(source) {
         });
     };
 
-    var keyUp = keycode(setState.bind(undefined, true));
-    var keyDown = keycode(setState.bind(undefined, false));
+    var keycode = get("keyCode");
+    var keyUp = compose(keycode, setState.bind(undefined, true));
+    var keyDown = compose(keycode, setState.bind(undefined, false));
     var localInit = init.bind(undefined, keyUp, keyDown);
 
     if (source) {
