@@ -30,7 +30,13 @@ The game will end if
 - you hit the playing area boundaries
 - you hit a wall created by eating a poisoned square
 
-## Browser support
+Missing in Action
+-----------------
+
+There is no high score list, not even a highest single score. It might be added tomorrow, or there might never be one. But it could go either way, depending on how carried away I will become.
+
+Browser support
+---------------
 
 Tests have only partial coverage
 
