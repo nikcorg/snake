@@ -4,7 +4,7 @@
   "description": "Still yet another snake game",
   "main": "bundle.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "homepage": "https://github.com/nikcorg/snake",
   "dependencies": {
     "debug": "~2.1.0"
+  },
+  "devDependencies": {
+    "tape": "~3.0.3"
   }
 }
