@@ -4,13 +4,12 @@ var pad = require("./util/pad");
 module.exports = init.init = init;
 
 function init(doc) {
-    var gameStart = Date.now();
     var score = doc.querySelector(".score span");
     var minutes = doc.querySelector(".time .m");
     var seconds = doc.querySelector(".time .s");
 
     function update(game) {
-        var elapsedTime = (Date.now() - gameStart) / 1000;
+        var elapsedTime = (Date.now() - game.start) / 1000;
         var elapsedMinutes = Math.floor(elapsedTime / 60);
         var elapsedSeconds = Math.floor(elapsedTime - elapsedMinutes * 60);
 
