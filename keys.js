@@ -12,7 +12,7 @@ var keycodes = {
     SPACE: 32
 };
 
-function init(keyDown, keyUp, source) {
+function listenTo(keyDown, keyUp, source) {
     source.addEventListener("keydown", keyDown, false);
     source.addEventListener("keyup", keyUp, false);
 }
@@ -54,7 +54,7 @@ function keys(source) {
     var keycode = get("keyCode");
     var keyUp = compose(keycode, setState.bind(undefined, true));
     var keyDown = compose(keycode, setState.bind(undefined, false));
-    var localInit = init.bind(undefined, keyUp, keyDown);
+    var localInit = listenTo.bind(undefined, keyUp, keyDown);
 
     if (source) {
         localInit(source);
@@ -63,8 +63,8 @@ function keys(source) {
     _keys.up = keyUp;
     _keys.down = keyDown;
     _keys.isdown = _keys.isup = getState;
-    _keys.init = localInit;
     _keys.pressed = pressed;
+    _keys.listenTo = localInit;
 
     return Object.freeze(_keys);
 }
