@@ -31,7 +31,7 @@ function death(game, doc) {
 
         radius += (maxRadius - radius) / speed;
 
-        return maxRadius - radius < 0.5;
+        return maxRadius - radius > 0.5;
     }
 
     function draw(_ctx) {

@@ -103,7 +103,7 @@ function death() {
     function animate() {
         update();
 
-        if (! animation.update()) {
+        if (animation.update()) {
             requestAnimationFrame(animate);
         }
     }
