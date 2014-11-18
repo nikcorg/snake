@@ -24,9 +24,10 @@ function canvas(doc, size, scale) {
             function (color) {
                 ctx.fillstyle = color;
             },
-        overlay: function (o) {
-                     overlays.push(o);
-                 },
+        overlay:
+            function (o) {
+                overlays.push(o);
+            },
         draw:
             function (body) {
                 if (body.color) {
@@ -43,8 +44,9 @@ function canvas(doc, size, scale) {
 
                 ctx.restore();
             },
-        appendTo: function (parent) {
-                      parent.appendChild(el);
-                  }
+        appendTo:
+            function (parent) {
+                parent.appendChild(el);
+            }
     });
 }
