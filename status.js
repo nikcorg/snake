@@ -13,7 +13,7 @@ function init(doc) {
         var elapsedMinutes = Math.floor(elapsedTime / 60);
         var elapsedSeconds = Math.floor(elapsedTime - elapsedMinutes * 60);
 
-        score.innerText = game.tail.length;
+        score.innerText = Math.round(game.tail.length * game.head.acc);
         minutes.innerText = elapsedMinutes;
         seconds.innerText = pad(elapsedSeconds, 2, "0");
     }
