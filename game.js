@@ -1,6 +1,6 @@
 var debug = require("debug")("game");
 var doc = document, global = window;
-var keys = global.keys = require("./keys").init(doc);
+var keys = require("./keys").init(doc);
 
 var and = require("./util/and");
 var not = require("./util/not");
