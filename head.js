@@ -29,37 +29,42 @@ function head(canvas, keys) {
         provisionalY = provisionalX;
 
     function update(beforeupdate) {
-        if (keys.isdown(keys.LEFT)) {
+        switch (keys.pressed([keys.LEFT, keys.RIGHT, keys.UP, keys.DOWN], true)) {
+        case keys.LEFT:
             if (Math.abs(provisionalY) > 0) {
                 provisionalX = Math.abs(provisionalY) * -1;
             }
 
             xv = -xMotion * acc;
             yv = provisionalY = 0;
-        }
-        else if (keys.isdown(keys.RIGHT)) {
+            break;
+
+        case keys.RIGHT:
             if (Math.abs(provisionalY) > 0) {
                 provisionalX = Math.abs(provisionalY);
             }
 
             xv = xMotion * acc;
             yv = provisionalY = 0;
-        }
-        else if (keys.isdown(keys.DOWN)) {
+            break;
+
+        case keys.DOWN:
             if (Math.abs(provisionalX) > 0) {
                 provisionalY = Math.abs(provisionalX);
             }
 
             xv = provisionalX = 0;
             yv = yMotion * acc;
-        }
-        else if (keys.isdown(keys.UP)) {
+            break;
+
+        case keys.UP:
             if (Math.abs(provisionalX) > 0) {
                 provisionalY = Math.abs(provisionalX) * -1;
             }
 
             xv = provisionalX = 0;
             yv = -yMotion * acc;
+            break;
         }
 
         provisionalX += xv;
