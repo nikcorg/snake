@@ -1,44 +1,46 @@
-Still yet another snake game
+Still Yet Another Snake Game
 ============================
 
-Inspired by [Mary live-codes a JavaScript game from scratch](http://vimeo.com/105955605), I decided to spend my sick leave making another snake game. (See previous at [worm.kakspistenolla.com](http://worm.kakspistenolla.com).) I did spent quite a bit more than 30 minutes, but in my defense, I'm pretty sure Mary had a practise run before her public live coding session.
+Inspired by [Mary live-codes a JavaScript game from scratch](http://vimeo.com/105955605), I decided to spend my sick leave making another snake game. (See previous at [worm.kakspistenolla.com](http://worm.kakspistenolla.com).) I did spent quite a bit more than 30 minutes, but in my defence, I'm pretty sure Mary had a practise run before her public live coding session.
 
 Playing the game
 ----------------
 
-A version of the game can be found at [snake.kakspistenolla.com](http://snake.kakspistenolla.com).
+A version of the game can be found at [snake.kakspistenolla.com](http://snake.kakspistenolla.com). It's probably the latest version, but that isn't guaranteed.
 
-The quickest way to test the game (locally) is using [`beefy`](http://didact.us/beefy/). Run `beefy main.js:bundle.js` and point your browser to the address echoed to your console.
+The quickest way to test the game (locally) is to use [`beefy`](https://www.npmjs.org/package/beefy). Install with `npm install -g beefy`, run `beefy main.js:bundle.js`, and point your browser to the address printed to your console.
 
 ### Controls
 
-You control the snake with your arrow keys
+The game starts when the page loads. Control the snake with your arrow keys. That's it.
 
-### The pieces
+### Game Over
 
-- a green square is an edible square worth 1 points
-- a red square is a poisoned square. It won't kill you, but your tail will be dropped, resetting your score to 0, and it will create a wall
-- a flashing square is a super square, worth anything between 50 and 300 points
+The game will end when any of the following is true
 
-Each tick, there is a 0.05% chance of a piece becoming poisoned, and a 0.02% chance of a piece becoming a super square. A poisoned square will remain poisoned, a super square will return to normal after 15-45 seconds. A super square can also become poisoned at any time.
-
-### Game over
-
-The game will end if
-
+- you hit a wall
 - you hit yourself
-- you hit the playing area boundaries
-- you hit a wall created by eating a poisoned square
+- you hit a playing area boundary
+
+### The Pieces
+
+- the pink longish (YMMV) thing with a red tip is your snake
+- a dark orange square is an edible square worth 1 points
+- a flashing square is a super square, worth anything between 50 and 300 points
+- a dark green square is poisonous. It won't kill you, but your tail will drop and turn into a wall, and your score will be reset to 0
+- a black square is a wall
+
+Each tick, there is a 0.05 % chance of a piece becoming poisoned, and a 0.02 % chance of a piece becoming a super square. A poisoned square will remain poisoned, a super square will return to normal after 15-45 seconds. A super square can also become poisoned at any time.
 
 Missing in Action
 -----------------
 
 There is no high score list, not even a highest single score. It might be added tomorrow, or there might never be one. But it could go either way, depending on how carried away I will become.
 
-Browser support
+Browser Support
 ---------------
 
-Tests have only partial coverage
+Test coverage is only partial. Only modern browsers supported.
 
 [![browser support](https://ci.testling.com/nikcorg/snake.png)
 ](https://ci.testling.com/nikcorg/snake)
