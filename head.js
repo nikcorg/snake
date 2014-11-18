@@ -28,7 +28,7 @@ function head(canvas, keys) {
         provisionalY = provisionalX;
 
     function update(beforeupdate) {
-        switch (keys.pressed([keys.LEFT, keys.RIGHT, keys.UP, keys.DOWN], true)) {
+        switch (keys.pressed([keys.LEFT, keys.RIGHT, keys.UP, keys.DOWN], true).shift()) {
         case keys.LEFT:
             if (Math.abs(provisionalY) > 0) {
                 provisionalX = Math.abs(provisionalY) * -1;
