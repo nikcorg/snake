@@ -27,8 +27,8 @@ function head(canvas, keys) {
 
     function update(beforeupdate) {
         switch (keys.pressed([keys.LEFT, keys.RIGHT, keys.UP, keys.DOWN], true).shift()) {
-        case keys.LEFT:
-            axis = "x", v = -1;
+        case keys.UP:
+            axis = "y", v = -1;
             break;
 
         case keys.RIGHT:
@@ -39,8 +39,8 @@ function head(canvas, keys) {
             axis = "y", v = 1;
             break;
 
-        case keys.UP:
-            axis = "y", v = -1;
+        case keys.LEFT:
+            axis = "x", v = -1;
             break;
         }
 
