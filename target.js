@@ -10,8 +10,8 @@ var ySize = xSize;
 function target(canvas) {
     var _target = {
         color: "#f00",
-        x: randomize(xSize, canvas.width / canvas.scale),
-        y: randomize(ySize, canvas.height / canvas.scale),
+        x: randomize(canvas.width / canvas.scale, xSize),
+        y: randomize(canvas.height / canvas.scale, ySize),
         height: xSize,
         width: ySize,
         update: update,

@@ -15,8 +15,8 @@ function head(canvas, keys) {
 
     var _head = {
         color: "brown",
-        x: randomize(xSize, canvas.width / canvas.scale),
-        y: randomize(ySize, canvas.height / canvas.scale),
+        x: randomize(canvas.width / canvas.scale, xSize),
+        y: randomize(canvas.height / canvas.scale, ySize),
         height: xSize,
         width: ySize,
         update: update
