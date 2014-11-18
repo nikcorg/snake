@@ -105,8 +105,6 @@ function death() {
 
         if (! animation.update()) {
             requestAnimationFrame(animate);
-        } else {
-            debug("all done");
         }
     }
 
