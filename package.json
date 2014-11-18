@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/nikcorg/snake/issues"
   },
-  "homepage": "https://github.com/nikcorg/snake"
+  "homepage": "https://github.com/nikcorg/snake",
+  "dependencies": {
+    "debug": "~2.1.0"
+  }
 }
