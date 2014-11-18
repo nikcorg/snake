@@ -107,9 +107,9 @@ function tick() {
     game.head.update(function () {
         if (game.tail.length < 1) return;
 
-        var tailtail = game.tail.shift();
+        var tailtail = game.tail.pop();
         tailtail.update(game.head);
-        game.tail.push(tailtail);
+        game.tail.unshift(tailtail);
     });
 
     // Update targets
