@@ -39,9 +39,9 @@ function keys(source) {
         return !!keymap[key];
     };
 
-    var check = function (keys, includeLast) {
+    var pressed = function (keys, includeLast) {
         return keys.filter(function (keycode) {
-            return getstate(keycode) ||
+            return getState(keycode) ||
                 (includeLast && lastPressed === keycode);
         }).
         pop() || false;
@@ -59,7 +59,7 @@ function keys(source) {
     _keys.down = keyDown;
     _keys.isdown = _keys.isup = getState;
     _keys.init = localInit;
-    _keys.check = check;
+    _keys.pressed = pressed;
 
     return Object.freeze(_keys);
 }
