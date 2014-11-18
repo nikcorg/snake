@@ -49,29 +49,36 @@ function start() {
 
 function poisonify(chance) {
     var random = Math.random() * 100;
-    var poisoned = game.targets.filter(get("poison"));
-    var poisonifiable = game.targets.filter(not(get("poison")));
+    var poisoned, poisonifiable;
 
-    if (chance <= random && poisoned.length < 15 && poisonifiable.length > 0) {
-        selectrandom(poisonifiable, function (target) {
-            target.poison = true;
-            target.super = false;
-        });
+    if (chance <= random) {
+        poisoned = game.targets.filter(get("poison"));
+        poisonifiable = game.targets.filter(not(get("poison")));
+
+        if (poisoned.length < 15 && poisonifiable.length > 1) {
+            selectrandom(poisonifiable, function (target) {
+                target.poison = true;
+                target.super = false;
+            });
+        }
     }
 }
 
 function superify(chance) {
     var random = Math.random() * 100;
-    var supers = game.targets.filter(get("super"));
-    var superifiable = game.targets.filter(
-            and(not(get("super")), not(get("poison"))));
+    var supers, superifiable;
 
-    if (chance <= random && supers.length < 1 && superifiable.length > 0) {
-        selectrandom(superifiable, function (target) {
-            target.poison = false;
-            // 60 fps, 15-45 secs
-            target.super = Math.round((Math.random() * 30 + 15) * 60);
-        });
+    if (chance <= random) {
+        supers = game.targets.filter(get("super"));
+        superifiable = game.targets.filter(
+                and(not(get("super")), not(get("poison"))));
+
+        if (supers.length < 1 && superifiable.length > 0) {
+            selectrandom(superifiable, function (target) {
+                // 60 fps, 15-45 secs
+                target.super = Math.round((Math.random() * 30 + 15) * 60);
+            });
+        }
     }
 }
 
