@@ -15,6 +15,7 @@ function head(canvas, keys) {
     var motion = 0;
 
     var _head = {
+        acc: acc,
         color: "brown",
         x: randomize(canvas.width / canvas.scale, xSize),
         y: randomize(canvas.height / canvas.scale, ySize),
@@ -44,7 +45,7 @@ function head(canvas, keys) {
             break;
         }
 
-        motion += speed * acc;
+        motion += speed * _head.acc;
 
         if (motion >= xSize) {
             beforeupdate();
