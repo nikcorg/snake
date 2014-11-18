@@ -3,7 +3,7 @@ var toarray = require("./toarray");
 module.exports = call.call = call;
 
 function call(method) {
-    var args = toarray(arguments, 1);
+    var args = toarray(arguments).slice(1);
 
     if (args.length > 0) {
         return function (o) {
