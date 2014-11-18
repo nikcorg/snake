@@ -34,6 +34,7 @@ var game = window.game = {
 module.exports = start.start = start;
 
 function start() {
+    game.start = Date.now();
     game.canvas = canvas(doc, game.size, game.scale);
     game.head = head.make(game.canvas, keys);
     game.tail = range(3).map(tail.bind(undefined, -1, -1));
