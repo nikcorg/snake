@@ -160,6 +160,7 @@ function tick() {
     // Update targets array
     game.targets = game.targets.filter(not(hittest(game.head)));
 
+    // Create new targets if there aren't (non-poisonous) any left
     if (game.targets.filter(not(get("poison"))).length < 1) {
         range(30).forEach(function () {
             var nt = target.make(game.canvas);
