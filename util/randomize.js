@@ -1,6 +1,6 @@
 var debug = require("debug")("randomize");
 
-module.exports = randomize;
+module.exports = randomize.randomize = randomize;
 
 function randomize(max, step) {
     if (undefined == step) {

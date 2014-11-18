@@ -1,4 +1,4 @@
-module.exports = not;
+module.exports = not.not = not;
 
 function not(fn) {
     return function () {

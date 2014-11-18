@@ -1,6 +1,6 @@
 var toarray = require("./toarray");
 
-module.exports = call;
+module.exports = call.call = call;
 
 function call(method) {
     var args = toarray(arguments, 1);

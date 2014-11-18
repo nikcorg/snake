@@ -1,4 +1,4 @@
-module.exports = get;
+module.exports = get.get = get;
 
 function get(prop) {
     return function (ob) {
