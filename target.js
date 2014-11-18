@@ -21,7 +21,7 @@ function target(canvas) {
 
     function update() {
         if (_target.poison) {
-            _target.color = "#a00";
+            _target.color = "darkgreen";
         } else if (_target.super > 0) {
             --_target.super;
             _target.color = "#" +
@@ -30,7 +30,7 @@ function target(canvas) {
                 pad(Math.round(Math.random() * 255).toString(16), 2, "0");
             debug("randomized color %s", _target.color);
         } else {
-            _target.color = "#0a0";
+            _target.color = "darkorange";
         }
     }
 
