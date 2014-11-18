@@ -178,5 +178,3 @@ function tick() {
 
     requestAnimationFrame(tick);
 }
-
-
