@@ -2,6 +2,7 @@ var debug = require("debug")("game");
 var doc = document, global = window;
 var keys = global.keys = require("./keys").init(doc);
 
+var and = require("./util/and");
 var not = require("./util/not");
 var put = require("./util/put");
 var get = require("./util/get");
@@ -59,11 +60,12 @@ function poisonTarget(chance) {
 function superTarget(chance) {
     var random = Math.random() * 100;
     var supers = game.targets.filter(get("super"));
-    var nonsuper = game.targets.filter(not(get("super")));
+    var superifiable = game.targets.filter(
+            and(not(get("super")), not(get("poison"))));
 
-    if (chance <= random && supers.length < 1 && nonsuper.length > 0) {
-        nonsuper[0].poison = false;
-        nonsuper[0].super = true;
+    if (chance <= random && supers.length < 1 && superifiable.length > 0) {
+        superifiable[0].poison = false;
+        superifiable[0].super = true;
     }
 }
 
