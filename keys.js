@@ -19,7 +19,6 @@ function listenTo(keyDown, keyUp, source) {
 
 function keys(source) {
     var _keys = Object.create(keycodes);
-    var echo = false;
     var keymap = {};
     var lastPressed = null;
 
