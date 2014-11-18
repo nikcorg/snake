@@ -40,11 +40,19 @@ function keys(source) {
     };
 
     var pressed = function (keys, includeLast) {
+        // Bulk check pressed state. If includeLast is set the lastPressed key
+        // will return true even is no longer pressed and the returned array
+        // is sorted in a way that the last pressed key is in position 0
         return keys.filter(function (keycode) {
             return getState(keycode) ||
                 (includeLast && lastPressed === keycode);
         }).
-        pop() || false;
+        sort(function (a, b) {
+            if (includeLast) {
+                return a === lastPressed ? -1 : 1;
+            }
+            return 0;
+        });
     };
 
     var keyUp = keycode(setState.bind(undefined, true));
