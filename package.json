@@ -1,0 +1,24 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "Still yet another snake game",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nikcorg/snake.git"
+  },
+  "keywords": [
+    "snake",
+    "game",
+    "canvas"
+  ],
+  "author": "Niklas Lindgren <nikc@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikcorg/snake/issues"
+  },
+  "homepage": "https://github.com/nikcorg/snake"
+}
