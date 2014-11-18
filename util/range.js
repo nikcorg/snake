@@ -1,3 +1,6 @@
+var debug = require("debug")("range");
+var sign = require("./sign");
+
 module.exports = range.range = range;
 
 function range(from, to) {
@@ -8,10 +11,14 @@ function range(from, to) {
 
     from = Math.round(from);
     to = Math.round(to);
+    step = sign(to - from);
 
-    return Array.apply(0, Array(to - from)).map(function (_, i) {
-        return from + i;
-    });
+    debug("from %d to %d (%d) step %d", from, to, Math.abs(to - from), step);
+
+    return Array.apply(Array, Array(Math.abs(to - from))).
+        map(function (_, i) {
+            return from + i * step;
+        });
 }
 
 
