@@ -50,10 +50,10 @@ function start() {
 function poisonify(chance) {
     var random = Math.random() * 100;
     var poisoned = game.targets.filter(get("poison"));
-    var unpoisoned = game.targets.filter(not(get("poison")));
+    var poisonifiable = game.targets.filter(not(get("poison")));
 
-    if (chance <= random && poisoned.length < 15 && unpoisoned.length > 0) {
-        selectrandom(unpoisoned, function (target) {
+    if (chance <= random && poisoned.length < 15 && poisonifiable.length > 0) {
+        selectrandom(poisonifiable, function (target) {
             target.poison = true;
             target.super = false;
         });
