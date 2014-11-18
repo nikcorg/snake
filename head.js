@@ -1,4 +1,5 @@
 var debug = require("debug")("head");
+var sign = require("./util/sign");
 var randomize = require("./util/randomize");
 
 module.exports = head.make = head;
@@ -7,11 +8,11 @@ var xSize = 1;
 var ySize = xSize;
 
 function head(canvas, keys) {
-    var xMotion = 2 / canvas.scale;
-    var yMotion = xMotion;
+    var speed = 2 / canvas.scale;
     var acc = 1;
-    var xv = xMotion;
-    var yv = 0;
+    var v = speed;
+    var axis = "x";
+    var motion = 0;
 
     var _head = {
         color: "brown",
@@ -24,60 +25,32 @@ function head(canvas, keys) {
 
     debug("starting from %sx%s", _head.x, _head.y);
 
-    var provisionalX = 0,
-        provisionalY = provisionalX;
-
     function update(beforeupdate) {
         switch (keys.pressed([keys.LEFT, keys.RIGHT, keys.UP, keys.DOWN], true).shift()) {
         case keys.LEFT:
-            if (Math.abs(provisionalY) > 0) {
-                provisionalX = Math.abs(provisionalY) * -1;
-            }
-
-            xv = -xMotion * acc;
-            yv = provisionalY = 0;
+            axis = "x", v = -1;
             break;
 
         case keys.RIGHT:
-            if (Math.abs(provisionalY) > 0) {
-                provisionalX = Math.abs(provisionalY);
-            }
-
-            xv = xMotion * acc;
-            yv = provisionalY = 0;
+            axis = "x", v = 1;
             break;
 
         case keys.DOWN:
-            if (Math.abs(provisionalX) > 0) {
-                provisionalY = Math.abs(provisionalX);
-            }
-
-            xv = provisionalX = 0;
-            yv = yMotion * acc;
+            axis = "y", v = 1;
             break;
 
         case keys.UP:
-            if (Math.abs(provisionalX) > 0) {
-                provisionalY = Math.abs(provisionalX) * -1;
-            }
-
-            xv = provisionalX = 0;
-            yv = -yMotion * acc;
+            axis = "y", v = -1;
             break;
         }
 
-        provisionalX += xv;
-        provisionalY += yv;
+        motion += speed * acc;
 
-        if (Math.abs(provisionalX) >= xSize ||
-            Math.abs(provisionalY) >= ySize
-        ) {
+        if (motion >= xSize) {
             beforeupdate();
 
-            _head.x += Math.floor(provisionalX);
-            _head.y += Math.floor(provisionalY);
-
-            provisionalX = provisionalY = 0;
+            _head[axis] += Math.floor(motion * sign(v));
+            motion -= xSize;
 
             debug("moved head to %sx%s", _head.x, _head.y);
         }
