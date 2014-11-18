@@ -142,6 +142,10 @@ function tick() {
 
     // Tail becomes wall when eating poison
     if (hit.filter(get("poison")).length > 0) {
+        if (game.tail.length < 1) {
+            return death();
+        }
+
         game.walls = game.walls.concat(game.tail.map(function (t) {
             return wall.make(t.x, t.y);
         }));
