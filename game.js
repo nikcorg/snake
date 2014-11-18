@@ -47,7 +47,7 @@ function start() {
     tick();
 }
 
-function poisonTarget(chance) {
+function poisonify(chance) {
     var random = Math.random() * 100;
     var poisoned = game.targets.filter(get("poison"));
     var unpoisoned = game.targets.filter(not(get("poison")));
@@ -60,7 +60,7 @@ function poisonTarget(chance) {
     }
 }
 
-function superTarget(chance) {
+function superify(chance) {
     var random = Math.random() * 100;
     var supers = game.targets.filter(get("super"));
     var superifiable = game.targets.filter(
@@ -78,8 +78,8 @@ function superTarget(chance) {
 function update() {
     var random = Math.random() * 100;
 
-    poisonTarget(99.95);
-    superTarget(99.98);
+    poisonify(99.95);
+    superify(99.98);
 
     game.canvas.clear();
     game.canvas.fillStyle("#000");
