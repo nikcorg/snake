@@ -1,5 +1,5 @@
 var debug = require("debug")("target");
-var randomize = require("./randomize");
+var randomize = require("./util/randomize");
 var pad = require("./util/pad");
 
 module.exports = target.target = target.make = target;

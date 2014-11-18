@@ -1,5 +1,5 @@
 var debug = require("debug")("head");
-var randomize = require("./randomize");
+var randomize = require("./util/randomize");
 
 module.exports = head.make = head;
 
