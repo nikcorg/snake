@@ -48,8 +48,8 @@ There is no high score list, not even a highest single score. It might be added 
 Building
 --------
 
-Use [`browserify`](https://www.npmjs.org/package/browserify) to build the game bundle. Install with `npm install -g browserify`, run `browserify src/main.js > static/bundle.js` (`npm run build` will do the same), then server the `static` folder's contents to a browser.
+Install [`browserify`](https://www.npmjs.org/package/browserify) and run `npm run build`. This will create the `static/bundle.js`.
 
 ### Preview
 
-The quickest way to test the game (locally) is to use [`beefy`](https://www.npmjs.org/package/beefy). Install with `npm install -g beefy`, run `beefy --cwd static src/main.js:bundle.js` (`npm run preview` will do the same), and point your browser to the address printed to your console.
+Install [`beefy`](https://www.npmjs.org/package/beefy) and run `npm run preview`. Open the address printed to your console in your browser. Prepend with `DEBUG=<namespace>` to enable debug output.
