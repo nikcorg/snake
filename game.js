@@ -1,6 +1,5 @@
 var debug = require("debug")("game");
 var doc = document, global = window;
-var keys = require("./keys").init(doc);
 
 var and = require("./util/and");
 var not = require("./util/not");
@@ -9,11 +8,10 @@ var get = require("./util/get");
 var call = require("./util/call");
 var range = require("./util/range");
 var flatMap = require("./util/flatmap");
-var hittest = require("./hittest");
-var gameover = require("./gameover");
 var selectrandom = require("./util/selectrandom");
 
-var scale = 10;
+var gameover = require("./gameover");
+var hittest = require("./hittest");
 var canvas = require("./canvas");
 var target = require("./target");
 var head = require("./head");
@@ -28,7 +26,8 @@ var game = window.game = {
     canvas: null,
     head: null,
     tail: null,
-    status: require("./status")(doc)
+    status: require("./status")(doc),
+    keys: require("./keys")(doc)
 };
 
 module.exports = start.start = start;
@@ -37,7 +36,7 @@ function start() {
     game.start = Date.now();
     game.speedup = game.start + 30000;
     game.canvas = canvas(doc, game.size, game.scale);
-    game.head = head.make(game.canvas, keys);
+    game.head = head.make(game.canvas, game.keys);
     game.tail = range(3).map(tail.bind(undefined, -1, -1));
 
     //var grid = require("./grid")(game.canvas, doc);
