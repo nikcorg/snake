@@ -1,5 +1,5 @@
 var test = require("tape");
-var flatmap = require("../../util/flatmap");
+var flatmap = require("util/flatmap");
 
 test("util/flatmap", function (t) {
     t.test("exports", function (t) {

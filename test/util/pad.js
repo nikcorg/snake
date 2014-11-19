@@ -1,5 +1,5 @@
 var test = require("tape");
-var pad = require("../../util/pad");
+var pad = require("util/pad");
 
 test("util/pad", function (t) {
     t.test("exports", function (t) {

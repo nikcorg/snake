@@ -1,5 +1,5 @@
 var test = require("tape");
-var range = require("../../util/range");
+var range = require("util/range");
 
 test("util/range", function (t) {
     t.test("exports", function (t) {

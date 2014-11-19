@@ -1,5 +1,5 @@
 var test = require("tape");
-var sel = require("../../util/selectrandom");
+var sel = require("util/selectrandom");
 
 test("util/selectrandom", function (t) {
     t.test("exports", function (t) {

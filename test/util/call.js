@@ -1,5 +1,5 @@
 var test = require("tape");
-var call = require("../../util/call");
+var call = require("util/call");
 
 test("util/call", function (t) {
     t.test("export", function (t) {

@@ -1,5 +1,5 @@
 var test = require("tape");
-var not = require("../../util/not");
+var not = require("util/not");
 
 test("util/not", function (t) {
     t.test("exports", function (t) {

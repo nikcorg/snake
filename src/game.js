@@ -1,14 +1,14 @@
 var debug = require("debug")("game");
 var doc = document, global = window;
 
-var and = require("./util/and");
-var not = require("./util/not");
-var put = require("./util/put");
-var get = require("./util/get");
-var call = require("./util/call");
-var range = require("./util/range");
-var flatMap = require("./util/flatmap");
-var selectrandom = require("./util/selectrandom");
+var and = require("util/and");
+var not = require("util/not");
+var put = require("util/put");
+var get = require("util/get");
+var call = require("util/call");
+var range = require("util/range");
+var flatMap = require("util/flatmap");
+var selectrandom = require("util/selectrandom");
 
 var gameover = require("./gameover");
 var hittest = require("./hittest");

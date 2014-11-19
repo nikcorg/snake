@@ -1,5 +1,5 @@
 var test = require("tape");
-var sign = require("../../util/sign");
+var sign = require("util/sign");
 
 test("util/sign", function (t) {
     t.test("exports", function (t) {

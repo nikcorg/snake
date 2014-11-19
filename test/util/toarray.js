@@ -1,5 +1,5 @@
 var test = require("tape");
-var toa = require("../../util/toarray");
+var toa = require("util/toarray");
 
 test("util/toarray", function (t) {
     t.test("exports", function (t) {

@@ -1,5 +1,5 @@
 var test = require("tape");
-var rand = require("../../util/randomize");
+var rand = require("util/randomize");
 
 test("util/randomize", function (t) {
     t.test("exports", function (t) {

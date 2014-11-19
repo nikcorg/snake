@@ -2,5 +2,5 @@ var debug = require("debug");
 
 debug.disable();
 
-require("./util/domready")(require("./game"));
+require("util/domready")(require("./game"));
 
