@@ -1,5 +1,4 @@
 var debug = require("debug")("game");
-var doc = document, global = window;
 
 var and = require("util/and");
 var not = require("util/not");
@@ -26,16 +25,19 @@ var game = window.game = {
     canvas: null,
     head: null,
     tail: null,
-    status: require("./status")(doc),
-    keys: require("./keys")(doc)
+    status: null,
+    keys: null
 };
 
 module.exports = start.start = start;
 
-function start() {
+function start(doc) {
+    game.doc = doc;
+    game.status = require("./status")(doc);
+    game.keys = require("./keys")(doc);
     game.start = Date.now();
     game.speedup = game.start + 30000;
-    game.canvas = canvas(doc, game.size, game.scale);
+    game.canvas = canvas(game.doc, game.size, game.scale);
     game.head = head.make(game.canvas, game.keys);
     game.tail = range(3).map(tail.bind(undefined, -1, -1));
 
@@ -43,7 +45,7 @@ function start() {
     //grid.update(game.canvas.scale);
     //game.canvas.overlay(grid);
 
-    game.canvas.appendTo(doc.querySelector("body"));
+    game.canvas.appendTo(game.doc.querySelector("body"));
 
     tick();
 }
@@ -94,7 +96,7 @@ function redrawAll() {
 }
 
 function death() {
-    var animation = require("./death")(game, doc);
+    var animation = require("./death")(game, game.doc);
 
     game.canvas.overlay(animation);
 
