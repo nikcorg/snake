@@ -1,4 +1,4 @@
 node_modules/*
 !node_modules/util
 .*.swp
-bundle.js
+static/bundle.js
