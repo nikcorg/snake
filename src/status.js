@@ -1,5 +1,5 @@
 var debug = require("debug")("status");
-var pad = require("./util/pad");
+var pad = require("util/pad");
 
 module.exports = init.init = init;
 

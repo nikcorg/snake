@@ -1,4 +1,4 @@
-var range = require("./util/range");
+var range = require("util/range");
 
 module.exports = overlay.overlay = overlay;
 

@@ -1,5 +1,5 @@
 var test = require("tape");
-var get = require("../../util/get");
+var get = require("util/get");
 
 test("util/get", function (t) {
     t.test("exports", function (t) {

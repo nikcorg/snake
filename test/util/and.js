@@ -1,5 +1,5 @@
 var test = require("tape");
-var and = require("../../util/and");
+var and = require("util/and");
 
 test("util/and", function (t) {
     t.test("export", function (t) {

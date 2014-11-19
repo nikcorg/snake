@@ -1,5 +1,5 @@
 var test = require("tape");
-var compose = require("../../util/compose");
+var compose = require("util/compose");
 
 test("util/compose", function (t) {
     t.test("exports", function (t) {

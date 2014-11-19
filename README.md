@@ -3,12 +3,18 @@ Still Yet Another Snake Game
 
 Inspired by [Mary live-codes a JavaScript game from scratch](http://vimeo.com/105955605), I decided to spend my sick leave making another snake game. (See previous at [worm.kakspistenolla.com](http://worm.kakspistenolla.com).) I did spent quite a bit more than 30 minutes, but in my defence, I'm pretty sure Mary had a practise run before her public live coding session.
 
-Playing the game
-----------------
-
 A version of the game can be found at [snake.kakspistenolla.com](http://snake.kakspistenolla.com). It's probably the latest version, but that isn't guaranteed.
 
-The quickest way to test the game (locally) is to use [`beefy`](https://www.npmjs.org/package/beefy). Install with `npm install -g beefy`, run `beefy main.js:bundle.js`, and point your browser to the address printed to your console.
+Browser Support
+---------------
+
+Test coverage is only partial. Modern browsers supported.
+
+[![browser support](https://ci.testling.com/nikcorg/snake.png)
+](https://ci.testling.com/nikcorg/snake)
+
+Playing the game
+----------------
 
 ### Controls
 
@@ -39,10 +45,11 @@ Missing in Action
 
 There is no high score list, not even a highest single score. It might be added tomorrow, or there might never be one. But it could go either way, depending on how carried away I will become.
 
-Browser Support
----------------
+Building
+--------
 
-Test coverage is only partial. Only modern browsers supported.
+Use [`browserify`](https://www.npmjs.org/package/browserify) to build the game bundle. Install with `npm install -g browserify`, run `browserify src/main.js > static/bundle.js` (`npm run build` will do the same), then server the `static` folder's contents to a browser.
 
-[![browser support](https://ci.testling.com/nikcorg/snake.png)
-](https://ci.testling.com/nikcorg/snake)
+### Preview
+
+The quickest way to test the game (locally) is to use [`beefy`](https://www.npmjs.org/package/beefy). Install with `npm install -g beefy`, run `beefy --cwd static src/main.js:bundle.js` (`npm run preview` will do the same), and point your browser to the address printed to your console.
