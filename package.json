@@ -4,6 +4,8 @@
   "description": "Still yet another snake game",
   "main": "bundle.js",
   "scripts": {
+    "build": "browserify main.js > static/bundle.js",
+    "preview": "beefy --cwd static main.js:bundle.js 8080",
     "test": "tape test/**/*.js"
   },
   "repository": {
