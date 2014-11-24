@@ -92,6 +92,12 @@ function redrawAll() {
         concat(game.walls).
         concat(game.tail).
         concat(game.head).
+        sort(function (b1, b2) {
+            var b1z = b1.z || 0;
+            var b2z = b2.z || 0;
+
+            return b1z - b2z;
+        }).
         forEach(game.canvas.draw);
 }
 
