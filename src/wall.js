@@ -9,6 +9,7 @@ function wall(x, y) {
     var _wall = {
         x: x,
         y: y,
+        z: 0,
         width: xSize,
         height: ySize
     };

@@ -9,6 +9,7 @@ function tail(x, y) {
     var _tail = {
         x: x,
         y: y,
+        z: 20,
         height: xSize,
         width: ySize,
         update: update,
