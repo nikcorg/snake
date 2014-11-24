@@ -12,6 +12,7 @@ function target(canvas) {
         color: "#f00",
         x: randomize(canvas.width / canvas.scale, xSize),
         y: randomize(canvas.height / canvas.scale, ySize),
+        z: 10,
         height: xSize,
         width: ySize,
         update: update,
