@@ -13,6 +13,8 @@ Test coverage is only partial. Modern browsers supported.
 [![browser support](https://ci.testling.com/nikcorg/snake.png)
 ](https://ci.testling.com/nikcorg/snake)
 
+[![build status](https://secure.travis-ci.org/nikcorg/snake.png)](http://travis-ci.org/nikcorg/snake)
+
 Playing the game
 ----------------
 
