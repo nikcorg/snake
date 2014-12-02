@@ -1,11 +1,11 @@
 var test = require("tape");
-var sel = require("util/selectrandom");
+var sel = require("util/sample");
 
-test("util/selectrandom", function (t) {
+test("util/sample", function (t) {
     t.test("exports", function (t) {
         t.plan(2);
         t.equal(typeof sel, "function", "exports function");
-        t.equal(typeof sel.selectrandom, "function", "exports redundant api");
+        t.equal(typeof sel.sample, "function", "exports redundant api");
     });
 
     t.test("callback invoked", function (t) {
