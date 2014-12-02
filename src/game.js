@@ -6,8 +6,8 @@ var put = require("util/put");
 var get = require("util/get");
 var call = require("util/call");
 var range = require("util/range");
+var sample = require("util/sample");
 var flatMap = require("util/flatmap");
-var selectrandom = require("util/selectrandom");
 
 var gameover = require("./gameover");
 var hittest = require("./hittest");
@@ -59,7 +59,7 @@ function poisonify(chance) {
         poisonifiable = game.targets.filter(not(get("poison")));
 
         if (poisoned.length < 15 && poisonifiable.length > 1) {
-            selectrandom(poisonifiable, function (target) {
+            sample(poisonifiable, function (target) {
                 target.poison = true;
                 target.super = false;
             });
@@ -77,7 +77,7 @@ function superify(chance) {
                 and(not(get("super")), not(get("poison"))));
 
         if (supers.length < 1 && superifiable.length > 0) {
-            selectrandom(superifiable, function (target) {
+            sample(superifiable, function (target) {
                 // 60 fps, 15-45 secs
                 target.super = Math.round((Math.random() * 30 + 15) * 60);
             });
