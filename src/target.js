@@ -1,6 +1,6 @@
 var debug = require("debug")("target");
-var randomize = require("util/randomize");
-var pad = require("util/pad");
+var randomize = require("funcalicious/randomize");
+var pad = require("funcalicious/pad");
 
 module.exports = target.target = target.make = target;
 

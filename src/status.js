@@ -1,5 +1,5 @@
 var debug = require("debug")("status");
-var pad = require("util/pad");
+var pad = require("funcalicious/pad");
 
 module.exports = init.init = init;
 

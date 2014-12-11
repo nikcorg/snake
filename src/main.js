@@ -4,4 +4,4 @@ if (/preview/.test(process.env.NODE_ENV)) {
     require("debug").disable();
 }
 
-require("util/domready")(require("./game").bind(undefined, document));
+require("funcalicious/domready")(require("./game").bind(undefined, document));

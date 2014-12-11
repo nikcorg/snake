@@ -1,6 +1,6 @@
 var debug = require("debug")("head");
-var sign = require("util/sign");
-var randomize = require("util/randomize");
+var sign = require("funcalicious/sign");
+var randomize = require("funcalicious/randomize");
 
 module.exports = head.make = head;
 

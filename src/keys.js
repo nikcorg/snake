@@ -1,6 +1,6 @@
 var debug = require("debug")("keys");
-var compose = require("util/compose");
-var get = require("util/get");
+var compose = require("funcalicious/compose");
+var get = require("funcalicious/get");
 
 module.exports = keys.init = keys;
 

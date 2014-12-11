@@ -1,4 +1,4 @@
-var range = require("util/range");
+var range = require("funcalicious/range");
 
 module.exports = overlay.overlay = overlay;
 

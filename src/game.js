@@ -1,13 +1,12 @@
 var debug = require("debug")("game");
 
-var and = require("util/and");
-var not = require("util/not");
-var put = require("util/put");
-var get = require("util/get");
-var call = require("util/call");
-var range = require("util/range");
-var sample = require("util/sample");
-var flatMap = require("util/flatmap");
+var and = require("funcalicious/and");
+var not = require("funcalicious/not");
+var get = require("funcalicious/get");
+var call = require("funcalicious/call");
+var range = require("funcalicious/range");
+var sample = require("funcalicious/sample");
+var flatMap = require("funcalicious/flatmap");
 
 var gameover = require("./gameover");
 var hittest = require("./hittest");
