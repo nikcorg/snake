@@ -14,7 +14,7 @@ Test coverage is only partial. Modern browsers supported.
 ](https://ci.testling.com/nikcorg/snake)
 
 [![build status](https://secure.travis-ci.org/nikcorg/snake.png)](http://travis-ci.org/nikcorg/snake)
-
+[![Dependencies](https://david-dm.org/nikcorg/snake.svg?style=flat)](https://david-dm.org/nikcorg/snake)
 [![Code Climate](https://codeclimate.com/github/nikcorg/snake/badges/gpa.svg)](https://codeclimate.com/github/nikcorg/snake)
 
 Playing the game
