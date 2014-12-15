@@ -33,7 +33,7 @@ module.exports = start.start = start;
 function start(doc) {
     game.doc = doc;
     game.status = require("./status")(doc);
-    game.keys = require("./keys")(doc);
+    game.keys = require("util/keys")(doc);
     game.start = Date.now();
     game.speedup = game.start + 30000;
     game.canvas = canvas(game.doc, game.size, game.scale);
